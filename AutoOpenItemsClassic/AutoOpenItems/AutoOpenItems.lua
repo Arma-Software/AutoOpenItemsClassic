@@ -3,7 +3,7 @@ local AutoOpenItems = CreateFrame('Frame')
 AutoOpenItems:SetScript('OnEvent', function(self, event, ...) self[event](...) end)
 
 print("|cff00FF00AOI:Auto Open Items Loaded Version: Classic WoW")
-print("|cffFF0000AOI: /aoihelp for Guide / How to Use Enjoy!")
+
 -- Add id here: 
 
 local Whitelist = {
