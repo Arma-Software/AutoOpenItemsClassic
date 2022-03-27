@@ -3,7 +3,7 @@
 local AutoOpenItems = CreateFrame('Frame')
 AutoOpenItems:SetScript('OnEvent', function(self, event, ...) self[event](...) end)
 
-print("|cff00FF00AOI:Auto Open Items Loaded Version: Classic WoW")
+print("|cff00FF80Auto Open Items : Loaded Classic WoW")
 
 -- Add id here: 
 
@@ -173,7 +173,7 @@ function CheckBag()
                 local id = GetContainerItemID(bag, slot)
                 if id and Whitelist[id] then
                     UseContainerItem(bag, slot)
-                    DEFAULT_CHAT_FRAME:AddMessage("|cFF00FF00Opening : " .. GetContainerItemLink(bag, slot) .. " ID: " .. GetContainerItemID(bag, slot))
+                    DEFAULT_CHAT_FRAME:AddMessage("|cff00FF80Auto Open Items : " .. GetContainerItemLink(bag, slot))
                     return
                 end
             end
