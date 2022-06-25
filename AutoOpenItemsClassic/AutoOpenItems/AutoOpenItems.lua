@@ -1,11 +1,6 @@
--- Creating a script 
-
 local AutoOpenItems = CreateFrame('Frame')
+
 AutoOpenItems:SetScript('OnEvent', function(self, event, ...) self[event](...) end)
-
-print("|cff00FF80Auto Open Items : Loaded Classic WoW")
-
--- Add id here: 
 
 local Whitelist = {
 
@@ -156,7 +151,123 @@ local Whitelist = {
 	[21113]			= true,			-- Watertight Trunk
 	[17965]			= true,			-- Yellow Sack of Gems
 	[22137]			= true,			-- Ysida's Satchel
-	
+
+	-- Vanilla; Quest Starting Items
+
+	--[[
+
+	[22970] 		= true,			-- A Bloodstained Envelope
+	[22972] 		= true,			-- A Careworn Note
+	[22973] 		= true,			-- A Crumpled Missive
+	[22723] 		= true,			-- A Letter from the Keeper of the Rolls
+	[2839] 			= true,			-- A Letter to Yvette
+	[11116] 		= true,			-- A Mangled Journal
+	[22974] 		= true,			-- A Ragged Page
+	[22975] 		= true,			-- A Smudged Document
+	[3317] 			= true,			-- A Talking Head
+	[22977] 		= true,			-- A Torn Letter
+	[4881] 			= true,			-- Aged Envelope
+	[2794] 			= true,			-- An Old History Book
+	[2874] 			= true,			-- An Unsent Letter
+	[21230] 		= true,			-- Ancient Qiraji Artifact
+	[18706] 		= true,			-- Arena Master
+	[12564] 		= true,			-- Assassination Note
+	[3668] 			= true,			-- Assassin's Contract
+	[16408] 		= true,			-- Befouled Water Globe
+	[18987] 		= true,			-- Blackhand's Command
+	[13140] 		= true,			-- Blood Red Key
+	[14650] 		= true,			-- Bloodhoof Village Gift Voucher
+	[12558] 		= true,			-- Blue-feathered Necklace
+	[5352] 			= true,			-- Book: The Powers Below
+	[20461] 		= true,			-- Brann Bronzebeard's Lost Letter
+	[20460] 		= true,			-- Brann Bronzebeard's Lost Letter
+	[14651] 		= true,			-- Brill Gift Voucher
+	[1357] 			= true,			-- Captain Sanders' Treasure Map
+	[4098] 			= true,			-- Carefully Folded Note
+	[18950] 		= true,			-- Chambermaid Pillaclencher's Pillow
+	[4926] 			= true,			-- Chen's Empty Keg
+	[4613] 			= true,			-- Corroded Black Box
+	[4056] 			= true,			-- Cortello's Riddle
+	[5877] 			= true,			-- Cracked Silithid Carapace
+	[12842] 		= true,			-- Crudely-written Log
+	[9254] 			= true,			-- Cuergo's Treasure Map
+	[16790] 		= true,			-- Damp Note
+	[20741] 		= true,			-- Deadwood Ritual Totem
+	[4854] 			= true,			-- Demon Scarred Cloak
+	[14648] 		= true,			-- Dolanaar Gift Voucher
+	[17126] 		= true,			-- Elegant Letter
+	[12771] 		= true,			-- Empty Firewater Flask
+	[17409] 		= true,			-- Encrusted Crystal Fragment
+	[3706] 			= true,			-- Ensorcelled Parchment
+	[10454] 		= true,			-- Essence of Eranikus
+	[4903] 			= true,			-- Eye of Burning Shadow
+	[23184] 		= true,			-- Flame of Darnassus
+	[23183] 		= true,			-- Flame of Ironforge
+	[23179] 		= true,			-- Flame of Orgrimmar
+	[23182] 		= true,			-- Flame of Stormwind
+	[23181] 		= true,			-- Flame of the Undercity
+	[23180] 		= true,			-- Flame of Thunder Bluff
+	[20310] 		= true,			-- Flayed Demon Skin
+	[11668] 		= true,			-- Flute of Xavaric
+	[12780] 		= true,			-- General Drakkisath's Command
+	[1962] 			= true,			-- Glowing Shadowhide Pendant
+	[10441] 		= true,			-- Glowing Shard
+	[1307] 			= true,			-- Gold Pickup Schedule
+	[14646] 		= true,			-- Goldshire Gift Voucher
+	[9370] 			= true,			-- Gordunni Scroll
+	[9326] 			= true,			-- Grime-Encrusted Ring
+	[11818] 		= true,			-- Grimesilt Outhouse Key
+	[5138] 			= true,			-- Harvester's Head
+	[13250] 		= true,			-- Head of Balnazzar
+	[13920] 		= true,			-- Healthy Dragon Scale
+	[5791] 			= true,			-- Henrig Lonebrow's Journal
+	[5099] 			= true,			-- Hoof of Lakota'mani
+	[14647] 		= true,			-- Kharanos Gift Voucher
+	[6172] 			= true,			-- Lost Supplies
+	[20949] 		= true,			-- Magical Ledger
+	[10000] 		= true,			-- Margol's Horn
+	[8524] 			= true,			-- Model 4711-FTZ Power Source
+	[3985] 			= true,			-- Monogrammed Sash
+	[5179] 			= true,			-- Moss-twined Heart
+	[6196] 			= true,			-- Noboru's Cudgel
+	[10589] 		= true,			-- Oathstone of Ysera's Dragonflight
+	[22719] 		= true,			-- Omarion's Handbook
+	[8704] 			= true,			-- OOX-09/HL Distress Beacon
+	[8623] 			= true,			-- OOX-17/TN Distress Beacon
+	[8705] 			= true,			-- OOX-22/FE Distress Beacon
+	[5102] 			= true,			-- Owatanka's Tailspike
+	[4614] 			= true,			-- Pendant of Myzrael
+	[18972] 		= true,			-- Perfect Yeti Hide
+	[10590] 		= true,			-- Pocked Black Box
+	[18969] 		= true,			-- Pristine Yeti Hide
+	[14649] 		= true,			-- Razor Hill Gift Voucher
+	[10621] 		= true,			-- Runed Scroll
+	[19423] 		= true,			-- Sayge's Fortune #23
+	[19424] 		= true,			-- Sayge's Fortune #24
+	[19443] 		= true,			-- Sayge's Fortune #25
+	[19452] 		= true,			-- Sayge's Fortune #27
+	[16304] 		= true,			-- Shadumbra's Head
+	[16305] 		= true,			-- Sharptalon's Claw
+	[7666] 			= true,			-- Shattered Necklace
+	[9250] 			= true,			-- Ship Schedule
+	[6497] 			= true,			-- Simple Parchment
+	[17008] 		= true,			-- Small Scroll
+	[17115] 		= true,			-- Squirrel Token
+	[17116] 		= true,			-- Squirrel Token
+	[16782] 		= true,			-- Strange Water Globe
+	[6775] 			= true,			-- Tome of Divinity
+	[6916] 			= true,			-- Tome of Divinity
+	[6776] 			= true,			-- Tome of Valor
+	[11463] 		= true,			-- Undelivered Parcel
+	[16303] 		= true,			-- Ursangous's Paw
+	[12563] 		= true,			-- Warlord Goretooth's Command
+	[5103] 			= true,			-- Washte Pawne's Feather
+	[4433] 			= true,			-- Waterlogged Envelope
+	[1972] 			= true,			-- Westfall Deed
+	[20742] 		= true,			-- Winterfall Ritual Totem
+
+	]]
+
 }
 
 function AutoOpenItems:Register(event, func)
@@ -167,20 +278,22 @@ function AutoOpenItems:Register(event, func)
 end
 
 function CheckBag()
-    if not InCombatLockdown() then
-        for bag = 0, 4 do
-            for slot = 0, GetContainerNumSlots(bag) do
-                local id = GetContainerItemID(bag, slot)
-                if id and Whitelist[id] then
-                    UseContainerItem(bag, slot)
-                    DEFAULT_CHAT_FRAME:AddMessage("|cff00FF80Auto Open Items : " .. GetContainerItemLink(bag, slot))
-                    return
-                end
-            end
-        end
+    if (not InCombatLockdown()) and (not (MerchantFrame and MerchantFrame:IsShown())) then
+	    for bag = 0, 4 do
+	        for slot = 0, GetContainerNumSlots(bag) do
+	            local id = GetContainerItemID(bag, slot)
+	            if id and Whitelist[id] then
+	                UseContainerItem(bag, slot)
+	                -- DEFAULT_CHAT_FRAME:AddMessage("|cff00FF80Auto Open Items : " .. GetContainerItemLink(bag, slot)) -- You can re-enable the chat message by un-commenting out this line
+	                return
+	            end
+	        end
+	    end
     end
 end
 
 AutoOpenItems:Register('BAG_UPDATE_DELAYED', CheckBag)
 
 AutoOpenItems:Register('PLAYER_REGEN_ENABLED', CheckBag)
+
+AutoOpenItems:Register('MERCHANT_CLOSED', CheckBag)
